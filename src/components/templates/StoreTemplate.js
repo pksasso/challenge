@@ -18,15 +18,14 @@ const Body = styled.div`
   margin-top: 6rem;
 `;
 
-const FireStore = ({ type, theme }) => {
-  const [pokemons, setPokemons] = useState([]);
+const FireStore = ({ theme, pokemons, pokemonType }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getPokemonList = async () => {
       try {
         setIsLoading(true);
-        const data = await getPokemonsByType(FIRE_TYPE);
+        const data = await getPokemonsByType(pokemonType);
         setPokemons(data);
         setIsLoading(false);
       } catch (err) {
@@ -38,14 +37,14 @@ const FireStore = ({ type, theme }) => {
 
   return (
     <div>
-      <Header logo={fire} label='Fire Store' theme={theme.fire} />
+      <Header logo={fire} label='Fire Store' theme={props.theme.fire} />
       <div>
         {isLoading ? (
           <Loader />
         ) : (
           <Body>
-            <PokemonList pokemons={pokemons} type={type} theme={theme.fire} />
-            <Cart type={type} theme={theme.fire} />
+            <PokemonList pokemons={pokemons} theme={props.theme.fire} />
+            <Cart />
           </Body>
         )}
       </div>

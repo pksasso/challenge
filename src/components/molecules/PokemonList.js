@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import PokemonItem from './PokemonItem';
+import PokemonItem from '../atoms/PokemonItem';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const List = styled.div`
   width: 100%;
@@ -13,15 +18,18 @@ const List = styled.div`
   grid-column-gap: 2rem;
 `;
 
-const Wrapper = styled.div``;
-
-function PokemonList({ pokemons, theme }) {
+function PokemonList({ pokemons, theme, type }) {
   return (
     <Wrapper>
       <List>
         {pokemons.map((pokemon) => {
           return (
-            <PokemonItem pokemon={pokemon} theme={theme} key={pokemon.id} />
+            <PokemonItem
+              pokemon={pokemon}
+              type={type}
+              theme={theme}
+              key={pokemon.id}
+            />
           );
         })}
       </List>

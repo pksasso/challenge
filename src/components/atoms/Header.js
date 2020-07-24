@@ -5,8 +5,11 @@ const Wrapper = styled.div`
   width: 100vw;
   background: ${(props) => props.color};
   height: 6rem;
+  position: fixed;
   display: flex;
   align-items: center;
+  top: 0;
+  z-index: 5;
   box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.6);
 `;
 

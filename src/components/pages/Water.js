@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import { getPokemonsByType } from '../../api/connections';
 
 import water from '../../assets/water.svg';
-import Header from '../Header';
-import Loader from '../Loader';
-import PokemonList from '../PokemonList';
+import Header from '../atoms/Header';
+import Loader from '../atoms/Loader';
+import PokemonList from '../molecules/PokemonList';
+import Cart from '../molecules/cart';
 
 const WATER_TYPE = 11;
 
-const WaterStore = (props) => {
+const Body = styled.div`
+  display: grid;
+  grid-template-columns: auto 25vw;
+  margin-top: 6rem;
+`;
+
+const WaterStore = ({ type, theme }) => {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -29,11 +37,14 @@ const WaterStore = (props) => {
 
   return (
     <div>
-      <Header logo={water} label='Water Store' theme={props.theme.water} />
+      <Header logo={water} label='Water Store' theme={theme.water} />
       {isLoading ? (
         <Loader />
       ) : (
-        <PokemonList pokemons={pokemons} theme={props.theme.water} />
+        <Body>
+          <PokemonList pokemons={pokemons} type={type} theme={theme.water} />
+          <Cart type={type} theme={theme.water} />
+        </Body>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import pokeball from '../assets/pokeball.svg';
+import pokeball from '../../assets/pokeball.svg';
 
 const Wrapper = styled.div`
   position: absolute;
