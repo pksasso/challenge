@@ -1,10 +1,27 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [fireCart, setFireCart] = useState([]);
-  const [waterCart, setWaterCart] = useState([]);
+  const [fireCart, setFireCart] = useState(() => {
+    const localData = localStorage.getItem('@fire-store/cart');
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  const [waterCart, setWaterCart] = useState(() => {
+    const localData = localStorage.getItem('@water-store/cart');
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('@fire-store/cart', JSON.stringify(fireCart));
+    return () => {};
+  }, [fireCart]);
+
+  useEffect(() => {
+    localStorage.setItem('@water-store/cart', JSON.stringify(waterCart));
+    return () => {};
+  }, [waterCart]);
 
   const getCartByType = (type) => {
     switch (type) {
@@ -12,6 +29,8 @@ export const CartProvider = ({ children }) => {
         return fireCart;
       case 'water':
         return waterCart;
+      default:
+        return 0;
     }
   };
 
@@ -23,6 +42,8 @@ export const CartProvider = ({ children }) => {
       case 'water':
         addWaterCart(pokemon);
         break;
+      default:
+        return 0;
     }
   };
 
@@ -33,6 +54,8 @@ export const CartProvider = ({ children }) => {
 
       case 'water':
         return waterTotalPrice();
+      default:
+        return 0;
     }
   };
 
@@ -43,11 +66,12 @@ export const CartProvider = ({ children }) => {
 
       case 'water':
         return clearWaterCart();
+      default:
+        return 0;
     }
   };
 
   const clearFireCart = () => {
-    console.log(fireCart.length);
     if (fireCart.length === 0) {
       return 0;
     } else {
@@ -57,7 +81,12 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearWaterCart = () => {
-    setWaterCart([]);
+    if (waterCart.length === 0) {
+      return 0;
+    } else {
+      setWaterCart([]);
+      return 1;
+    }
   };
 
   const fireTotalPrice = () => {
@@ -66,6 +95,7 @@ export const CartProvider = ({ children }) => {
       : 0;
     return totalPrice;
   };
+
   const waterTotalPrice = () => {
     let totalPrice = waterCart
       ? waterCart.reduce((totalPrice, pokemon) => totalPrice + pokemon.price, 0)
@@ -77,6 +107,7 @@ export const CartProvider = ({ children }) => {
     let list = [...fireCart, item];
     setFireCart(list);
   };
+
   const addWaterCart = (item) => {
     let list = [...waterCart, item];
     setWaterCart(list);
