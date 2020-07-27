@@ -28,11 +28,11 @@ Os dados dos pokémon são fornecidos pelo pela [PokeAPI](https://pokeapi.co/).
 
 A arquitetura do projeto segue algumas idéias apresentadas no [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/)
 
-##Tecnologias utilizadas
+## Tecnologias utilizadas
 
 A aplicação foi desenvolvida usando a biblioteca [ReactJs](https://pt-br.reactjs.org/) e para cuidar do roteamento entre as lojas o [React-Router](https://reacttraining.com/react-router/web/guides/quick-start). As requisições para a API foram feitas usando um Client HTTP chamado [axios](https://github.com/axios/axios) e estilizada usando [Styled-Components](https://styled-components.com/).
 
-##MVP
+## MVP
 - Catálogo de produtos
 - Carrinho lateral
 - Resumo do carrinho
