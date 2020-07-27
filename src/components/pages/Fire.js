@@ -6,21 +6,30 @@ import { getPokemonsByType } from '../../api/connections';
 import Header from '../atoms/Header';
 import Loader from '../atoms/Loader';
 import fire from '../../assets/fire.svg';
-import Cart from '../molecules/cart';
+import Cart from '../molecules/Cart';
 
 import PokemonList from '../molecules/PokemonList';
 
 const FIRE_TYPE = 10;
 
 const Body = styled.div`
-  display: grid;
-  grid-template-columns: auto 25vw;
+  display: flex;
   margin-top: 6rem;
+  @media only screen and (max-width: 770px) {
+    margin-top: 7rem;
+  }
+  @media only screen and (max-width: 500px) {
+    margin-top: 8rem;
+  }
+  @media only screen and (max-width: 400px) {
+    margin-top: 9rem;
+  }
 `;
 
 const FireStore = ({ type, theme }) => {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
     const getPokemonList = async () => {
@@ -38,7 +47,13 @@ const FireStore = ({ type, theme }) => {
 
   return (
     <div>
-      <Header logo={fire} label='Fire Store' theme={theme.fire} />
+      <Header
+        logo={fire}
+        label='Fire Store'
+        theme={theme.fire}
+        cartOpen={cartOpen}
+        setCartOpen={setCartOpen}
+      />
       <div>
         {isLoading ? (
           <Loader />

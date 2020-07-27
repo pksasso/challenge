@@ -9,6 +9,17 @@ export default createGlobalStyle`
  
 html{
   font-size: 62.5%; /* 1rem = 10px*/
-  background-color: #f2f2f2
+  background-color: #f2f2f2;
+
+  @media only screen and (max-width:770px) {
+          font-size: 55%;
+      }
+  @media only screen and (max-width:500px) {
+          font-size: 50%;
+      }
+  @media only screen and (max-width:400px) {
+          font-size: 40%;
+      }
+      
 }
 `;

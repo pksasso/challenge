@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import CartListItem from '../atoms/CartListItem';
 import { CartContext } from '../../context/CartContext';
@@ -8,13 +8,27 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  position: fixed;
+
   right: 0;
-  width: 23vw;
+  width: 35rem;
   max-height: calc(100vh - 8rem);
   margin: 1rem;
+
   border-radius: 2px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  @media only screen and (max-width: 770px) {
+    max-height: calc(100vh - 9rem);
+  }
+  @media only screen and (max-width: 700px) {
+    display: none;
+  }
+
+  @media only screen and (max-width: 500px) {
+    max-height: calc(100vh - 10rem);
+  }
+  @media only screen and (max-width: 400px) {
+    max-height: calc(100vh - 11rem);
+  }
 `;
 const Title = styled.h1`
   color: #5e5e5e;

@@ -9,8 +9,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 6rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   :hover {
     background-color: #ebebeb;
   }
@@ -26,12 +26,13 @@ const Image = styled.img`
 
 const Infos = styled.p`
   font-family: 'Roboto';
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #454545;
 `;
 
 const Name = styled(Infos)`
   flex-grow: 1;
+  text-overflow: ellipsis;
 `;
 
 const CartListItem = ({ pokemon }) => {
