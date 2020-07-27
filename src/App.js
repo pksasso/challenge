@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from './global';
-import theme from './styles/themes/Theme';
+import theme from './styles/Theme';
 
 import Home from './components/pages/Home';
 import FireStore from './components/pages/Fire';
