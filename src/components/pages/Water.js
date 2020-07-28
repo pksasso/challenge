@@ -8,6 +8,7 @@ import Header from '../atoms/Header';
 import Loader from '../atoms/Loader';
 import PokemonList from '../molecules/PokemonList';
 import Cart from '../molecules/Cart';
+import CartModal from '../molecules/CartModal';
 
 const WATER_TYPE = 11;
 
@@ -52,6 +53,12 @@ const WaterStore = ({ type, theme }) => {
         theme={theme.water}
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
+      />
+      <CartModal
+        setCartOpen={setCartOpen}
+        cartOpen={cartOpen}
+        theme={theme.water}
+        type={type}
       />
       <div>
         {isLoading ? (

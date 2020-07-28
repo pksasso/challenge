@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import Modal from 'react-modal';
 
 import GlobalStyle from './global';
 import theme from './styles/Theme';
@@ -13,6 +14,8 @@ import { CartProvider } from './context/CartContext';
 
 const FIRE_TYPE = 'fire';
 const WATER_TYPE = 'water';
+
+Modal.setAppElement('#root');
 
 function App() {
   return (

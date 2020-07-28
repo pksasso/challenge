@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-
 import styled from 'styled-components';
+import Modal from 'react-modal';
+
 import { getPokemonsByType } from '../../api/connections';
 
 import Header from '../atoms/Header';
 import Loader from '../atoms/Loader';
 import fire from '../../assets/fire.svg';
 import Cart from '../molecules/Cart';
-
 import PokemonList from '../molecules/PokemonList';
+import CartModal from '../molecules/CartModal';
 
 const FIRE_TYPE = 10;
 
@@ -54,6 +55,13 @@ const FireStore = ({ type, theme }) => {
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
       />
+      <CartModal
+        setCartOpen={setCartOpen}
+        cartOpen={cartOpen}
+        theme={theme.fire}
+        type={type}
+      />
+
       <div>
         {isLoading ? (
           <Loader />
