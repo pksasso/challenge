@@ -3,9 +3,6 @@
 </div>
 
 <div align="center">
-  <a aria-label="Netlify" href="https://challenge-b2w.netlify.app/">
-    <img src="https://api.netlify.com/api/v1/badges/7fb80aa7-3125-474f-992b-18eef214089e/deploy-status"></img>
-  </a>
 <a aria-label="ReactJS" href="https://pt-br.reactjs.org/">
     <img src="https://img.shields.io/badge/ReactJS-16.13.1-61dafb"></img>
   </a>
@@ -21,6 +18,7 @@
 </div>
 
 ## Sobre
+
 Projeto criado para o processo seletivo de Front-End na B2W.
 O desafio consiste em criar uma loja de pokémon, sendo pelo menos duas lojas com tipos e estilizações diferentes.
 
@@ -33,7 +31,14 @@ A arquitetura do projeto segue algumas idéias apresentadas no [Atomic Design](h
 A aplicação foi desenvolvida usando a biblioteca [ReactJs](https://pt-br.reactjs.org/) e para cuidar do roteamento entre as lojas o [React-Router](https://reacttraining.com/react-router/web/guides/quick-start). As requisições para a API foram feitas usando um Client HTTP chamado [axios](https://github.com/axios/axios) e estilizada usando [Styled-Components](https://styled-components.com/).
 
 ## MVP
+
 - Catálogo de produtos
 - Carrinho lateral
 - Resumo do carrinho
- - 2 lojas com estilos e tipos diferentes de Pokémon
+- 2 lojas com estilos e tipos diferentes de Pokémon
+
+## Extras feitos
+
+- Botão de finalizar compra, reiniciando o processo de compra
+- Modal de obrigado ao finalizar compra
+- Salvar os dados da compra do usuário localmente para não perdê-las ao atualizar a página
