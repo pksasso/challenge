@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
@@ -50,13 +50,6 @@ const FinishButton = styled.button`
 
 const CheckoutModal = ({ checkoutOpen, setCheckoutOpen, type }) => {
   const context = useContext(CartContext);
-
-  useEffect(() => {
-    return () => {
-      console.log(checkoutOpen);
-      context.clearCartByType(type);
-    };
-  }, []);
 
   const totalPrice = () => {
     const total = context.getTotalPriceByType(type) / 10;
