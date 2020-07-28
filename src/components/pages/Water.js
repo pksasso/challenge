@@ -9,6 +9,7 @@ import Loader from '../atoms/Loader';
 import PokemonList from '../molecules/PokemonList';
 import Cart from '../molecules/Cart';
 import CartModal from '../molecules/CartModal';
+import CheckoutModal from '../molecules/CheckoutModal';
 
 const WATER_TYPE = 11;
 
@@ -30,6 +31,7 @@ const WaterStore = ({ type, theme }) => {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   useEffect(() => {
     const getPokemonList = async () => {
@@ -59,6 +61,12 @@ const WaterStore = ({ type, theme }) => {
         cartOpen={cartOpen}
         theme={theme.water}
         type={type}
+        setCheckoutOpen={setCheckoutOpen}
+      />
+      <CheckoutModal
+        checkoutOpen={checkoutOpen}
+        setCheckoutOpen={setCheckoutOpen}
+        type={type}
       />
       <div>
         {isLoading ? (
@@ -66,7 +74,11 @@ const WaterStore = ({ type, theme }) => {
         ) : (
           <Body>
             <PokemonList pokemons={pokemons} type={type} theme={theme.water} />
-            <Cart type={type} theme={theme.water} />
+            <Cart
+              type={type}
+              theme={theme.water}
+              setCheckoutOpen={setCheckoutOpen}
+            />
           </Body>
         )}
       </div>

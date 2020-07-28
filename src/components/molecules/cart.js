@@ -8,12 +8,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-
   right: 0;
   width: 35rem;
   max-height: calc(100vh - 8rem);
   margin: 1rem;
-
   border-radius: 2px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   @media only screen and (max-width: 770px) {
@@ -73,15 +71,11 @@ const FinishButton = styled.button`
   }
 `;
 
-const Cart = ({ theme, type }) => {
+const Cart = ({ theme, type, setCheckoutOpen }) => {
   const context = useContext(CartContext);
 
-  const cleanCart = () => {
-    if (context.clearCartByType(type) === 0) {
-      alert('Coloque algo no seu carrinho');
-    } else {
-      alert('Pedido Finalizado. Obrigado por comprar conosco.');
-    }
+  const goToCheckout = () => {
+    setCheckoutOpen(true);
   };
 
   return (
@@ -95,7 +89,7 @@ const Cart = ({ theme, type }) => {
       <FinalPrice>Total R${context.getTotalPriceByType(type)},00</FinalPrice>
       <FinishButton
         onClick={() => {
-          cleanCart();
+          goToCheckout();
         }}
         color={theme}
       >

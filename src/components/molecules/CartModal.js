@@ -56,17 +56,12 @@ const FinishButton = styled.button`
   }
 `;
 
-const CartModal = ({ cartOpen, setCartOpen, theme, type }) => {
+const CartModal = ({ cartOpen, setCartOpen, theme, type, setCheckoutOpen }) => {
   const context = useContext(CartContext);
 
-  const cleanCart = () => {
-    if (context.clearCartByType(type) === 0) {
-      alert('Coloque algo no seu carrinho');
-      setCartOpen(false);
-    } else {
-      alert('Pedido Finalizado. Obrigado por comprar conosco.');
-      setCartOpen(false);
-    }
+  const goToCheckout = () => {
+    setCartOpen(false);
+    setCheckoutOpen(true);
   };
 
   return (
@@ -100,7 +95,7 @@ const CartModal = ({ cartOpen, setCartOpen, theme, type }) => {
           </FinalPrice>
           <FinishButton
             onClick={() => {
-              cleanCart();
+              goToCheckout();
             }}
             color={theme}
           >
