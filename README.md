@@ -3,6 +3,9 @@
 </div>
 
 <div align="center">
+<a aria-label="Netlify" href="https://b2w-challenge.netlify.app/">	
+    <img src="https://api.netlify.com/api/v1/badges/62f8d817-40a7-4fd7-8f00-3c1d49919ea9/deploy-status"></img>	
+  </a>
 <a aria-label="ReactJS" href="https://pt-br.reactjs.org/">
     <img src="https://img.shields.io/badge/ReactJS-16.13.1-61dafb"></img>
   </a>
