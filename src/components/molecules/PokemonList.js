@@ -5,18 +5,18 @@ import PokemonItem from '../atoms/PokemonItem';
 
 const Wrapper = styled.div`
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
   width: 100%;
-  flex-grow: 1;
 `;
 
 const List = styled.div`
-  width: 100%;
+  align-content: space-between;
   display: grid;
+  grid-row-gap: 5rem;
   grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
   justify-content: space-evenly;
-  align-content: space-between;
-  grid-row-gap: 5rem;
+  width: 100%;
 `;
 
 function PokemonList({ pokemons, theme, type }) {

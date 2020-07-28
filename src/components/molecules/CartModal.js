@@ -9,48 +9,47 @@ const Wrapper = styled.div`
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-
   height: 100%;
 `;
 const Title = styled.h1`
   color: #5e5e5e;
-  text-align: center;
-  font-size: 2.5rem;
+  border-bottom: 1px solid #c2c2c2;
   font-family: 'Roboto';
+  font-size: 2.5rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
-  border-bottom: 1px solid #c2c2c2;
+  text-align: center;
 `;
 const FinalPrice = styled.div`
+  border-top: 1px solid #c2c2c2;
   color: #000000;
+  font-family: 'Roboto';
+  font-size: 2rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
   text-align: center;
-  font-size: 2rem;
-  font-family: 'Roboto';
-  border-top: 1px solid #c2c2c2;
 `;
 
 const CartList = styled.div`
-  font-size: 2rem;
   font-family: 'Roboto';
+  font-size: 2rem;
   flex-grow: 1;
 `;
 
 const FinishButton = styled.button`
-  color: #ffffff;
-  text-align: center;
-  width: 50%;
-  margin-bottom: 20px;
   align-self: center;
+  border: none;
+  background-color: ${(props) => props.color.primary};
+  color: #ffffff;
+  font-family: 'Roboto';
   font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  outline: none;
   padding-bottom: 1rem;
   padding-top: 1rem;
-  font-family: 'Roboto';
-  outline: none;
-  border: none;
   transition: 0.2s all;
-  background-color: ${(props) => props.color.primary};
+  width: 50%;
   :hover {
     background-color: ${(props) => props.color.dark};
   }

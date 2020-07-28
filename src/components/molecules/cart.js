@@ -5,15 +5,15 @@ import { CartContext } from '../../context/CartContext';
 
 const Wrapper = styled.div`
   background-color: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   height: 100vh;
+  margin: 1rem;
+  max-height: calc(100vh - 8rem);
   right: 0;
   width: 35rem;
-  max-height: calc(100vh - 8rem);
-  margin: 1rem;
-  border-radius: 2px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   @media only screen and (max-width: 770px) {
     max-height: calc(100vh - 9rem);
   }
@@ -29,43 +29,42 @@ const Wrapper = styled.div`
   }
 `;
 const Title = styled.h1`
+  border-bottom: 1px solid #c2c2c2;
   color: #5e5e5e;
-  text-align: center;
-  font-size: 2.5rem;
   font-family: 'Roboto';
+  font-size: 2.5rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
-  border-bottom: 1px solid #c2c2c2;
+  text-align: center;
 `;
 const FinalPrice = styled.div`
+  border-top: 1px solid #c2c2c2;
   color: #000000;
+  font-family: 'Roboto';
+  font-size: 2rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
   text-align: center;
-  font-size: 2rem;
-  font-family: 'Roboto';
-  border-top: 1px solid #c2c2c2;
 `;
 
 const CartList = styled.div`
-  font-size: 2rem;
-  font-family: 'Roboto';
   flex-grow: 1;
+  font-family: 'Roboto';
+  font-size: 2rem;
   overflow: auto;
 `;
 
 const FinishButton = styled.button`
-  background-color: green;
+  background-color: ${(props) => props.color.primary};
+  border: none;
   color: #ffffff;
-  text-align: center;
+  font-family: 'Roboto';
   font-size: 2rem;
+  text-align: center;
   padding-bottom: 1rem;
   padding-top: 1rem;
-  font-family: 'Roboto';
   outline: none;
-  border: none;
   transition: 0.2s all;
-  background-color: ${(props) => props.color.primary};
   :hover {
     background-color: ${(props) => props.color.dark};
   }

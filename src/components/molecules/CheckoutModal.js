@@ -7,25 +7,17 @@ import { CartContext } from '../../context/CartContext';
 const Wrapper = styled.div`
   background-color: #ffffff;
   flex-direction: column;
-  position: relative;
   height: 100%;
+  position: relative;
 `;
 
 const Content = styled.div`
-  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100%;
   font-size: 2.5rem;
-`;
-
-const Title = styled.h1`
-  color: #5e5e5e;
-  text-align: center;
-  font-size: 4rem;
-  font-family: 'Roboto';
-  margin-bottom: 30px;
+  height: 100%;
+  justify-content: center;
 `;
 
 const Message = styled.p`
@@ -35,15 +27,20 @@ const Message = styled.p`
   font-family: 'Roboto';
 `;
 
+const Title = styled(Message)`
+  font-size: 4rem;
+  margin-bottom: 30px;
+`;
+
 const FinishButton = styled.button`
+  background-color: transparent;
+  border: none;
   color: #5e5e5e;
+  font-family: 'Roboto';
   font-size: 30px;
   right: 0;
-  position: absolute;
-  background-color: transparent;
-  font-family: 'Roboto';
   outline: none;
-  border: none;
+  position: absolute;
   transition: 0.2s all;
   :hover {
     color: #000000;

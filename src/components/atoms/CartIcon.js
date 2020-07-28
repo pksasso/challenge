@@ -6,10 +6,10 @@ import cart from '../../assets/cart.svg';
 const CartWrapper = styled.button`
   background-color: transparent;
   border: none;
+  border-radius: 5px;
   margin-right: 3rem;
   outline: none;
   padding: 3px;
-  border-radius: 5px;
   transition: 0.2s all;
   :hover {
     background-color: rgba(0, 0, 0, 0.2);
@@ -18,8 +18,8 @@ const CartWrapper = styled.button`
 `;
 
 const CartImage = styled.img`
-  height: 4rem;
   color: white;
+  height: 4rem;
 `;
 
 function CartIcon({ cartOpen, setCartOpen }) {

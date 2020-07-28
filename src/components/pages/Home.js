@@ -5,12 +5,12 @@ import fire from '../../assets/fire.svg';
 import water from '../../assets/water.svg';
 
 const Wrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  height: 100vh;
+  width: 100vw;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -24,25 +24,24 @@ const Item = styled(Link)`
 `;
 
 const Type = styled.img`
-  height: 18rem;
   background-color: ${(props) => props.type};
-
   border-radius: 10rem;
-  padding: 2rem;
   box-shadow: 10px 10px 45px -19px ${(props) => props.type};
+  height: 18rem;
+  padding: 2rem;
   transition: 0.5s all;
   :hover {
-    transform: scale(1.03);
     box-shadow: 10px 10px 60px 0px ${(props) => props.type};
+    transform: scale(1.03);
   }
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
-  position: absolute;
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Roboto';
+  font-size: 3rem;
   margin-bottom: 30rem;
+  position: absolute;
 `;
 
 const Home = (props) => {

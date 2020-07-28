@@ -63,7 +63,6 @@ export const CartProvider = ({ children }) => {
     switch (type) {
       case 'fire':
         return clearFireCart();
-
       case 'water':
         return clearWaterCart();
       default:
