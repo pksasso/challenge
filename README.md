@@ -45,3 +45,7 @@ A aplicação foi desenvolvida usando a biblioteca [ReactJs](https://pt-br.react
 - Botão de finalizar compra, reiniciando o processo de compra
 - Modal de obrigado ao finalizar compra
 - Salvar os dados da compra do usuário localmente para não perdê-las ao atualizar a página
+
+## Preview
+
+![PokeStore demo](video.gif)
