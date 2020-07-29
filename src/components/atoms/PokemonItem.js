@@ -66,7 +66,7 @@ const PokemonItem = ({ pokemon, theme, type }) => {
       <InfosBox>
         <Image src={pokemon.sprite ? pokemon.sprite : pokeballSprite} />
         <Infos>{pokemon.name}</Infos>
-        <Infos>{`RS ${pokemon.price},00`}</Infos>
+        <Infos>{`R$ ${pokemon.price},00`}</Infos>
       </InfosBox>
       <BuyButton
         onClick={() => context.addCartByType(type, pokemon)}
