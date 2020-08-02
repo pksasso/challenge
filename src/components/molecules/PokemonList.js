@@ -19,19 +19,12 @@ const List = styled.div`
   width: 100%;
 `;
 
-function PokemonList({ pokemons, theme, type }) {
+function PokemonList({ pokemons, type }) {
   return (
     <Wrapper>
       <List>
         {pokemons.map((pokemon) => {
-          return (
-            <PokemonItem
-              pokemon={pokemon}
-              type={type}
-              theme={theme}
-              key={pokemon.id}
-            />
-          );
+          return <PokemonItem pokemon={pokemon} type={type} key={pokemon.id} />;
         })}
       </List>
     </Wrapper>

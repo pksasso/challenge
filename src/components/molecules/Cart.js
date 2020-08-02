@@ -55,7 +55,7 @@ const CartList = styled.div`
 `;
 
 const FinishButton = styled.button`
-  background-color: ${(props) => props.color.primary};
+  background-color: ${(props) => props.theme.primary};
   border: none;
   color: #ffffff;
   font-family: 'Roboto';
@@ -66,11 +66,11 @@ const FinishButton = styled.button`
   outline: none;
   transition: 0.2s all;
   :hover {
-    background-color: ${(props) => props.color.dark};
+    background-color: ${(props) => props.theme.dark};
   }
 `;
 
-const Cart = ({ theme, type, setCheckoutOpen }) => {
+const Cart = ({ type, setCheckoutOpen }) => {
   const context = useContext(CartContext);
 
   const goToCheckout = () => {
@@ -90,7 +90,6 @@ const Cart = ({ theme, type, setCheckoutOpen }) => {
         onClick={() => {
           goToCheckout();
         }}
-        color={theme}
       >
         Finalizar
       </FinishButton>

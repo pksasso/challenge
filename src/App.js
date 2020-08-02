@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import Modal from 'react-modal';
 
 import GlobalStyle from './global';
-import theme from './styles/Theme';
+import { theme } from './styles/Theme';
 
 import Home from './components/pages/Home';
 import FireStore from './components/pages/Fire';
@@ -19,24 +19,28 @@ Modal.setAppElement('#root');
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <CartProvider>
-          <GlobalStyle />
-          <Switch>
-            <Route exact path='/'>
+    <Router>
+      <CartProvider>
+        <GlobalStyle />
+        <Switch>
+          <Route exact path='/'>
+            <ThemeProvider theme={theme}>
               <Home theme={theme} />
-            </Route>
-            <Route path='/fogo'>
-              <FireStore type={FIRE_TYPE} theme={theme} />
-            </Route>
-            <Route path='/agua'>
+            </ThemeProvider>
+          </Route>
+          <Route path='/fogo'>
+            <ThemeProvider theme={theme.fire}>
+              <FireStore type={FIRE_TYPE} />
+            </ThemeProvider>
+          </Route>
+          <Route path='/agua'>
+            <ThemeProvider theme={theme.water}>
               <WaterStore type={WATER_TYPE} theme={theme} />
-            </Route>
-          </Switch>
-        </CartProvider>
-      </Router>
-    </ThemeProvider>
+            </ThemeProvider>
+          </Route>
+        </Switch>
+      </CartProvider>
+    </Router>
   );
 }
 

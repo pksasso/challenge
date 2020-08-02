@@ -5,7 +5,7 @@ import CartIcon from './CartIcon';
 
 const Wrapper = styled.div`
   align-items: center;
-  background: ${(props) => props.color};
+  background: ${(props) => props.theme.primary};
   box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.6);
   display: flex;
   height: 6rem;
@@ -53,9 +53,9 @@ const BurgerWrapper = styled.div`
   }
 `;
 
-const Header = ({ logo, label, theme, cartOpen, setCartOpen }) => {
+const Header = ({ logo, label, cartOpen, setCartOpen }) => {
   return (
-    <Wrapper color={theme.primary}>
+    <Wrapper>
       <TitleWrapper>
         <Logo src={logo} />
         <Title>{label}</Title>

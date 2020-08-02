@@ -27,7 +27,7 @@ const Body = styled.div`
   }
 `;
 
-const WaterStore = ({ type, theme }) => {
+const WaterStore = ({ type }) => {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -52,14 +52,12 @@ const WaterStore = ({ type, theme }) => {
       <Header
         logo={water}
         label='Water Store'
-        theme={theme.water}
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
       />
       <CartModal
         setCartOpen={setCartOpen}
         cartOpen={cartOpen}
-        theme={theme.water}
         type={type}
         setCheckoutOpen={setCheckoutOpen}
       />
@@ -73,12 +71,8 @@ const WaterStore = ({ type, theme }) => {
           <Loader />
         ) : (
           <Body>
-            <PokemonList pokemons={pokemons} type={type} theme={theme.water} />
-            <Cart
-              type={type}
-              theme={theme.water}
-              setCheckoutOpen={setCheckoutOpen}
-            />
+            <PokemonList pokemons={pokemons} type={type} />
+            <Cart type={type} setCheckoutOpen={setCheckoutOpen} />
           </Body>
         )}
       </div>

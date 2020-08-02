@@ -52,14 +52,12 @@ const FireStore = ({ type, theme }) => {
       <Header
         logo={fire}
         label='Fire Store'
-        theme={theme.fire}
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
       />
       <CartModal
         setCartOpen={setCartOpen}
         cartOpen={cartOpen}
-        theme={theme.fire}
         type={type}
         setCheckoutOpen={setCheckoutOpen}
       />
@@ -73,12 +71,8 @@ const FireStore = ({ type, theme }) => {
           <Loader />
         ) : (
           <Body>
-            <PokemonList pokemons={pokemons} type={type} theme={theme.fire} />
-            <Cart
-              type={type}
-              theme={theme.fire}
-              setCheckoutOpen={setCheckoutOpen}
-            />
+            <PokemonList pokemons={pokemons} type={type} />
+            <Cart type={type} setCheckoutOpen={setCheckoutOpen} />
           </Body>
         )}
       </div>

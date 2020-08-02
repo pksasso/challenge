@@ -1,4 +1,4 @@
-export default {
+export const theme = {
   fire: {
     primary: '#F08030',
     dark: '#9C531F',

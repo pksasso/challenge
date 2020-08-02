@@ -41,7 +41,7 @@ const Image = styled.img`
 `;
 
 const BuyButton = styled.button`
-  background-color: ${(props) => props.color.primary};
+  background-color: ${(props) => props.theme.primary};
   border: none;
   color: #ffffff;
   font-family: 'Roboto';
@@ -54,11 +54,11 @@ const BuyButton = styled.button`
   justify-self: end;
   width: inherit;
   :hover {
-    background-color: ${(props) => props.color.dark};
+    background-color: ${(props) => props.theme.dark};
   }
 `;
 
-const PokemonItem = ({ pokemon, theme, type }) => {
+const PokemonItem = ({ pokemon, type }) => {
   const context = useContext(CartContext);
 
   return (
@@ -68,10 +68,7 @@ const PokemonItem = ({ pokemon, theme, type }) => {
         <Infos>{pokemon.name}</Infos>
         <Infos>{`R$ ${pokemon.price},00`}</Infos>
       </InfosBox>
-      <BuyButton
-        onClick={() => context.addCartByType(type, pokemon)}
-        color={theme}
-      >
+      <BuyButton onClick={() => context.addCartByType(type, pokemon)}>
         Comprar
       </BuyButton>
     </Wrapper>
