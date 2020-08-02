@@ -3,14 +3,17 @@ import React, { useState, createContext, useEffect } from 'react';
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [fireCart, setFireCart] = useState(() => {
-    const localData = localStorage.getItem('@fire-store/cart');
+  const getItemStorage = (storeName) => {
+    const localData = localStorage.getItem(storeName);
     return localData ? JSON.parse(localData) : [];
+  };
+
+  const [fireCart, setFireCart] = useState(() => {
+    return getItemStorage('@fire-store/cart');
   });
 
   const [waterCart, setWaterCart] = useState(() => {
-    const localData = localStorage.getItem('@water-store/cart');
-    return localData ? JSON.parse(localData) : [];
+    return getItemStorage('@water-store/cart');
   });
 
   useEffect(() => {
@@ -37,10 +40,10 @@ export const CartProvider = ({ children }) => {
   const addCartByType = (type, pokemon) => {
     switch (type) {
       case 'fire':
-        addFireCart(pokemon);
+        addCart(pokemon, fireCart, setFireCart);
         break;
       case 'water':
-        addWaterCart(pokemon);
+        addCart(pokemon, waterCart, setWaterCart);
         break;
       default:
         return 0;
@@ -50,10 +53,9 @@ export const CartProvider = ({ children }) => {
   const getTotalPriceByType = (type) => {
     switch (type) {
       case 'fire':
-        return fireTotalPrice();
-
+        return totalPrice(fireCart);
       case 'water':
-        return waterTotalPrice();
+        return totalPrice(waterCart);
       default:
         return 0;
     }
@@ -62,54 +64,33 @@ export const CartProvider = ({ children }) => {
   const clearCartByType = (type) => {
     switch (type) {
       case 'fire':
-        return clearFireCart();
+        return clearCart(fireCart, setFireCart);
       case 'water':
-        return clearWaterCart();
+        return clearCart(waterCart, setWaterCart);
       default:
         return 0;
     }
   };
 
-  const clearFireCart = () => {
-    if (fireCart.length === 0) {
-      return 0;
-    } else {
-      setFireCart([]);
-      return 1;
-    }
-  };
-
-  const clearWaterCart = () => {
-    if (waterCart.length === 0) {
-      return 0;
-    } else {
-      setWaterCart([]);
-      return 1;
-    }
-  };
-
-  const fireTotalPrice = () => {
-    let totalPrice = fireCart
-      ? fireCart.reduce((totalPrice, pokemon) => totalPrice + pokemon.price, 0)
+  const totalPrice = (cart) => {
+    let totalPrice = cart
+      ? cart.reduce((totalPrice, pokemon) => totalPrice + pokemon.price, 0)
       : 0;
     return totalPrice;
   };
 
-  const waterTotalPrice = () => {
-    let totalPrice = waterCart
-      ? waterCart.reduce((totalPrice, pokemon) => totalPrice + pokemon.price, 0)
-      : 0;
-    return totalPrice;
+  const addCart = (item, cart, setCart) => {
+    let list = [...cart, item];
+    setCart(list);
   };
 
-  const addFireCart = (item) => {
-    let list = [...fireCart, item];
-    setFireCart(list);
-  };
-
-  const addWaterCart = (item) => {
-    let list = [...waterCart, item];
-    setWaterCart(list);
+  const clearCart = (cart, setCart) => {
+    if (cart.length === 0) {
+      return 0;
+    } else {
+      setCart([]);
+      return 1;
+    }
   };
 
   return (
