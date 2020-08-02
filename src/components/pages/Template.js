@@ -5,13 +5,10 @@ import { getPokemonsByType } from '../../api/connections';
 
 import Header from '../atoms/Header';
 import Loader from '../atoms/Loader';
-import fire from '../../assets/fire.svg';
-import Cart from '../molecules/Cart';
 import PokemonList from '../molecules/PokemonList';
+import Cart from '../molecules/Cart';
 import CartModal from '../molecules/CartModal';
 import CheckoutModal from '../molecules/CheckoutModal';
-
-const FIRE_TYPE = 10;
 
 const Body = styled.div`
   display: flex;
@@ -27,7 +24,7 @@ const Body = styled.div`
   }
 `;
 
-const FireStore = ({ type, theme }) => {
+const TemplatePage = ({ type, typeNumber, logo, label }) => {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -37,7 +34,7 @@ const FireStore = ({ type, theme }) => {
     const getPokemonList = async () => {
       try {
         setIsLoading(true);
-        const data = await getPokemonsByType(FIRE_TYPE);
+        const data = await getPokemonsByType(typeNumber);
         setPokemons(data);
         setIsLoading(false);
       } catch (err) {
@@ -50,8 +47,8 @@ const FireStore = ({ type, theme }) => {
   return (
     <div>
       <Header
-        logo={fire}
-        label='Fire Store'
+        logo={logo}
+        label={label}
         cartOpen={cartOpen}
         setCartOpen={setCartOpen}
       />
@@ -80,4 +77,4 @@ const FireStore = ({ type, theme }) => {
   );
 };
 
-export default FireStore;
+export default TemplatePage;
