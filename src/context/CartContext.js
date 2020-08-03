@@ -172,11 +172,11 @@ export const CartProvider = ({ children }) => {
       cart: ghostCart,
       setCart: setGhostCart,
     },
-    ghost: {
-      cart: ghostCart,
-      setCart: setGhostCart,
-    },
     steel: {
+      cart: steelCart,
+      setCart: setSteelCart,
+    },
+    fire: {
       cart: fireCart,
       setCart: setFireCart,
     },
